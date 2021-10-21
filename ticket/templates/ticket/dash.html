@@ -1,0 +1,43 @@
+{% extends 'ticket/base2.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load static %}
+<style>
+.dashlogo {
+	width: 300px;
+	height: 300px;
+}
+.dashlogo1 {
+	width: 300px;
+	height: 300px;
+}
+
+
+</style>
+
+<div class="file">
+	<div class="row">
+		<div class="col-lg-6 col-md-6 col-xs-6">
+			<center>
+				<a href = "/ticket/file">
+					<img src="{% static 'shuttle/submit.jpg' %}" class="img-reponsive dashlogo">
+					
+				</a>
+				<h6>File a Ticket</h6>
+			</center>
+		</div>
+
+		<div class="col-lg-6 col-md-6 col-xs-6">
+			<center>
+				<a href = "/ticket/record">
+					<img src="{% static 'shuttle/record.png' %}" class="img-reponsive dashlogo1">
+					
+				</a>
+				<h6>Track Submitted Tickets</h6>
+			</center>
+		</div>
+	</div>
+
+</div>
+
+{% endblock content %}

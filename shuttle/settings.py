@@ -41,9 +41,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
 
     'tracing.apps.TracingConfig',
     'ticket.apps.TicketConfig',
+    'login.apps.LoginConfig',
+    
 ]
 
 MIDDLEWARE = [
@@ -127,5 +130,12 @@ STATICFILES_LOCATION = 'static'
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = MEDIA_DIR
-STATIC_ROOT = STATIC_DIR
+
+LOGIN_REDIRECT_URL = '/ticket'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
 

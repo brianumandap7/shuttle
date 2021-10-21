@@ -1,0 +1,60 @@
+{% extends 'ticket/base2.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load static %}
+<div class="container">
+	<center>
+	<form method="POST">
+		{% csrf_token %}
+		<table>
+			<tr>
+				<td>
+					Date of Travel:
+				</td>
+				<td>
+					<input type="date" name="dt" class="form-control" required>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					Time of Travel:
+				</td>
+				<td>
+					<input type="time" name="tt" class="form-control" required>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					Description/Purpose:&nbsp;&nbsp;
+				</td>
+				<td>
+					<textarea name="dn" rows="4" cols="50" class="form-control" required></textarea>
+					
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					Email: 
+				</td>
+				<td>
+					<input type="text" name="ea" class="form-control" required>
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					
+				</td>
+				<td>
+					<input type="submit" name="sb" class="form-control btn btn-success" value = "Submit">
+				</td>
+			</tr>
+		</table>
+		
+	</form>
+	</center>
+</div>
+{% endblock content %}

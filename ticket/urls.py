@@ -8,6 +8,8 @@ app_name = 'ticket'
 
 urlpatterns = [
     path('', views.ticket, name='ticket-ticket'),
+    path('file/', views.file, name='ticket-file'),
+    path('record/', views.record, name='ticket-record'),
 ]
 
 
