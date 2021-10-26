@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'tracing.apps.TracingConfig',
     'ticket.apps.TicketConfig',
     'login.apps.LoginConfig',
+    'fts.apps.FtsConfig',
     
 ]
 

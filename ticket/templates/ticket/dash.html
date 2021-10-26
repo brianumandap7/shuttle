@@ -20,6 +20,28 @@
 
 </script>
 {% endif %}
+{% if request.user.is_staff %}
+
+{% for items in role %}
+	{% if items.role_id == 2 %}
+	<script>
+		window.location.href = '/fts/head/';
+
+	</script>
+	{% elif items.role_id == 3 %}
+	<script>
+		window.location.href = '/fts/';
+
+	</script>
+	{% elif items.role_id == 4 %}
+	<script>
+		window.location.href = '/fts/exec/';
+
+	</script>
+	{% endif %}
+{% endfor %}
+
+{% endif %}
 <div class="file">
 	<div class="row">
 		<div class="col-lg-6 col-md-6 col-xs-6">

@@ -1,12 +1,13 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth.models import User
 from .models import Tickets, Status
+from login.models import Roles, Author
 
 
 
 def ticket(request):
 	query = {
-		
+		'role': Author.objects.filter(user = request.user)
 	}
 	return render(request, 'ticket/dash.html', query)
 
