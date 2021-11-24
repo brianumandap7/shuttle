@@ -8,7 +8,7 @@ class Roles(models.Model):
 	role = models.CharField(max_length=255, blank=True, null = True)
 
 	def __str__(self):
-		return self.role
+		return self.role+" ID: "+str(self.role_id)
 
 class Author(models.Model):        
     # required to associate Author model with User model (Important)

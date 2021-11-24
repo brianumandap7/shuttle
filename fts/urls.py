@@ -10,6 +10,7 @@ urlpatterns = [
     path('', views.fts, name='fts-fts'),
     path('head/', views.head, name='head-head'),
     path('exec/', views.exec, name='exec-exec'),
+    path('head/<int:tag>', views.headu, name='exec-head'),
 ]
 
 
