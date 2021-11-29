@@ -24,3 +24,44 @@ class Tickets(models.Model):
 
     def __str__(self):
     	return str(self.description)+" Date Filed: "+str(self.date_filed)+" By: "+str(self.user)
+
+class easy_maps(models.Model):        
+    # required to associate Author model with User model (Important)
+    address = models.CharField(max_length=255, blank=True, null = True)
+    
+    def __str__(self):
+        return str(self.address)
+
+class shuttle(models.Model):        
+    # required to associate Author model with User model (Important)
+    shuttle = models.CharField(max_length=255, blank=True, null = True)
+    driver = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return str(self.shuttle)+" "+str(self.driver)
+
+class destination(models.Model):        
+    # required to associate Author model with User model (Important)
+    destination = models.CharField(max_length=255, blank=True, null = True)
+    
+    def __str__(self):
+        return str(self.destination)
+
+class current_loc(models.Model):        
+    # required to associate Author model with User model (Important)
+    current_loc = models.CharField(max_length=255, blank=True, null = True)
+    
+    def __str__(self):
+        return str(self.current_loc)
+
+class Stations(models.Model):
+    station_id = models.AutoField(primary_key=True)
+    longlat = models.CharField(max_length=255, blank=True, null = True)
+    current_loc = models.ForeignKey(current_loc, null=True, blank=True, on_delete=models.CASCADE)
+    destination = models.ForeignKey(destination, null=True, blank=True, on_delete=models.CASCADE)
+    shuttle = models.ForeignKey(shuttle, null=True, blank=True, on_delete=models.CASCADE)
+
+    a_driver = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.shuttle)+" "+str(self.current_loc)+" "+str(self.a_driver)

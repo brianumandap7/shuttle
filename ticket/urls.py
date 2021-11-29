@@ -10,6 +10,8 @@ urlpatterns = [
     path('', views.ticket, name='ticket-ticket'),
     path('file/', views.file, name='ticket-file'),
     path('record/', views.record, name='ticket-record'),
+    path('dashtrack/', views.dashtrack, name='ticket-dashtrack'),
+    path('track/', views.track, name='ticket-track'),
 ]
 
 

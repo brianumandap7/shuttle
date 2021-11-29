@@ -1,0 +1,59 @@
+{% extends 'ticket/base2.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+<div class="row">
+	<div class = "col-lg-6 col-md-6 col-xs-6">
+		<center>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3867.2770764246884!2d120.95874881478497!3d14.237052390034895!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd7ef46fab8bbf%3A0x7afedd6cee471d1!2sFEU%20Cavite%20College%20Building!5e0!3m2!1sen!2sph!4v1638152465776!5m2!1sen!2sph" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+		</center>
+	</div>
+
+	<div class="col-lg-6 col-md-6 col-xs-6">
+		<form method="POST">
+		{% csrf_token %}
+		<table>
+			<tr>
+				<td>
+					Shuttle number: {% for items in shuttle %}{{items.shuttle}}{% endfor %}
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					Driver: {{user}}
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					
+					<label>Current Location: </label>
+                        <select class="form-control" name = "cl" required>
+                          <option style="display:none"></option>
+                         {% for items in curr %}
+                          <option value="{{items.id}}">{{items.current_loc}}</option>
+                         {% endfor %}
+                    </select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<h6>Actual Movement: {% for items in stat %}{{items.current_loc}}{% endfor %}</h6>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="submit" name="" value="Start" class="btn btn-success">
+				</td>
+			</tr>
+		</table>
+		</form>
+
+
+	</div>
+</div>
+
+{% endblock content %}
+

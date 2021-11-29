@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth.models import User
-from .models import Tickets, Status
+from .models import Tickets, Status, Stations, shuttle, destination, current_loc
 from login.models import Roles, Author
 
 
@@ -35,4 +35,15 @@ def record(request):
 	}
 	return render(request, 'ticket/record.html', query)
 
+def track(request):
+	query = {
 
+	}
+	return render(request, 'ticket/track.html', query)
+
+
+def dashtrack(request):
+	query = {
+
+	}
+	return render(request, 'ticket/dashtrack.html', query)

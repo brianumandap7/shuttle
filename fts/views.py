@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth.models import User
-from ticket.models import Tickets, Status
+from ticket.models import Tickets, Status, Stations, shuttle, destination, current_loc
 from login.models import Author, Roles
 
 
@@ -15,6 +15,21 @@ def head(request):
 		'list': Tickets.objects.all(),
 	}
 	return render(request, 'fts/head.html', query)
+
+def driver(request):
+	query = {
+		'shuttle': shuttle.objects.filter(driver = request.user),
+		'curr': current_loc.objects.all(),
+		'stat': Stations.objects.filter(a_driver = request.user)
+	}
+
+	if request.method == "POST":
+		upd = Stations.objects.get(a_driver = request.user)
+		upd.current_loc_id = request.POST.get('cl')
+		upd.save()
+
+	return render(request, 'fts/driver.html', query)
+
 
 def exec(request):
 	query = {
