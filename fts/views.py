@@ -20,7 +20,7 @@ def driver(request):
 	query = {
 		'shuttle': shuttle.objects.filter(driver = request.user),
 		'curr': current_loc.objects.all(),
-		'stat': Stations.objects.filter(a_driver = request.user)
+		'stat': Stations.objects.filter(a_driver = request.user),
 	}
 
 	if request.method == "POST":
