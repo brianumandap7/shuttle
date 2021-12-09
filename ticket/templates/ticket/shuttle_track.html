@@ -2,7 +2,7 @@
 {% block content %}
 {% load crispy_forms_tags %}
 {% load static %}
-
+<meta http-equiv="refresh" content="10">
 <div class="row">
 	<div class = "col-lg-6 col-md-6 col-xs-6">
 		<center>
@@ -34,13 +34,13 @@
 		<table>
 			<tr>
 				<td>
-					Shuttle number: {% for items in shuttle %}{{items.shuttle}}{% endfor %}
+					Shuttle number: {% for items in stat %}{{items.shuttle}}{% endfor %}
 				</td>
 			</tr>
 
 			<tr>
 				<td>
-					Driver: {{user}}
+					Driver: {% for items in stat %}{{items.a_driver}}{% endfor %}
 				</td>
 			</tr>
 
@@ -48,7 +48,7 @@
 				<td>
 					
 					<label>Select Movement - Location: </label>
-                        <select class="form-control" name = "cl" required>
+                        <select class="form-control" name = "cl" disabled>
                           <option style="display:none"></option>
                          {% for items in curr %}
 
@@ -66,36 +66,45 @@
 			<tr>
 				<td>
 					<b>Shuttle's Current Map Location:</b>
+					{% for items in stat %}
+
+					<p id="demo123">
+						Latitude: <input type = 'text' name = 'lat' value='{{items.lat}}' readonly>
+						Longitude: <input type = 'text' name = 'lon' value='{{items.lon}}' readonly>
+					</p>
+		          
+          			{% endfor %}
+          
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					Let the driver you're here by turning on your location.
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<button onclick="getLocation()" type = "submit" class="btn btn-success">Turn my Location ON!</button>
+
 					<p id="demo"></p>
 
-          <script>
-          var x = document.getElementById("demo");
+					<script>
+					var x = document.getElementById("demo");
 
-          function getLocation() {
-            if (navigator.geolocation) {
-              navigator.geolocation.getCurrentPosition(showPosition);
-            } else { 
-              x.innerHTML = "Geolocation is not supported by this browser.";
-            }
-          }
+					function getLocation() {
+					  if (navigator.geolocation) {
+					    navigator.geolocation.getCurrentPosition(showPosition);
+					  } else { 
+					    x.innerHTML = "Geolocation is not supported by this browser.";
+					  }
+					}
 
-          function showPosition(position) {
-            x.innerHTML = "Latitude: <input type = 'text' name = 'lat' value='"+position.coords.latitude+"'>"+" "+ 
-            "Longitude: <input type = 'text' name = 'lon' value='"+position.coords.longitude+"'>"
-          }
-          </script>
-				</td>
-			</tr>
-
-			<tr>
-				<td>
-					<input type="submit" name="" value="Update Movement" class="btn btn-success" onclick="getLocation()">
-				</td>
-			</tr>
-
-			<tr>
-				<td>
-					You have {{cnt}} students/employees waiting at Gate.
+					function showPosition(position) {
+					  x.innerHTML = "Your Latitude: " + position.coords.latitude + 
+					  "<br>Your Longitude: " + position.coords.longitude;
+					}
+					</script>
 				</td>
 			</tr>
 		</table>

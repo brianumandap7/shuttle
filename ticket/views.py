@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth.models import User
-from .models import Tickets, Status, Stations, shuttle, destination, current_loc
+from .models import Tickets, Status, Stations, shuttle, destination, current_loc, imhere
 from login.models import Roles, Author
 
 
@@ -44,6 +44,19 @@ def track(request):
 
 def dashtrack(request):
 	query = {
-
+	'sh': Stations.objects.all(),
 	}
 	return render(request, 'ticket/dashtrack.html', query)
+
+def shuttle_track(request, tag=0):
+	query = {
+		'tag':tag,
+		'curr': current_loc.objects.all(),
+		'stat': Stations.objects.filter(station_id = tag),
+	}
+
+	if request.method == "POST":
+			db = imhere()
+			db.user = request.user
+			db.save()
+	return render(request, 'ticket/shuttle_track.html', query)
