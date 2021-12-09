@@ -1,0 +1,97 @@
+{% extends 'ticket/base2.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+<div class="container">
+<form method="POST">
+	{% csrf_token %}
+	{% for items in hd %}
+	<table>
+		<tr>
+			<td>
+				1. {{items.q1}} 
+			</td>
+			<td>
+				<select class="form-control" name="a1" class="form-control">
+					<option value="">--</option>
+					{% for items in ans %}
+				    <option value="{{items.id}}">{{items.answers}}</option>
+				    {% endfor %}
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				2. {{items.q2}} 
+			</td>
+			<td>
+				<select class="form-control" name="a2" class="form-control">
+					<option value="">--</option>
+					{% for items in ans %}
+				    <option value="{{items.id}}">{{items.answers}}</option>
+				    {% endfor %}
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				3. {{items.q3}} 
+			</td>
+			<td>
+				<select class="form-control" name="a3" class="form-control">
+					<option value="">--</option>
+					{% for items in ans %}
+				    <option value="{{items.id}}">{{items.answers}}</option>
+				    {% endfor %}
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				4. {{items.q4}} 
+			</td>
+			<td>
+				<select class="form-control" name="a4" class="form-control">
+					<option value="">--</option>
+					{% for items in ans %}
+				    <option value="{{items.id}}">{{items.answers}}</option>
+				    {% endfor %}
+				</select>
+			</td>
+		</tr>
+
+		<tr>
+			<td>
+				5. {{items.q5}} 
+			</td>
+			<td>
+				<select class="form-control" name="a5" class="form-control">
+					<option value="">--</option>
+					{% for items in ans %}
+				    <option value="{{items.id}}">{{items.answers}}</option>
+				    {% endfor %}
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				Email: <input type="email" name="eadd" class="form-control">
+			</td>
+			
+		</tr>
+		<tr>
+			<td>
+				<input type="submit" value="Submit" class="btn btn-success">
+			</td>
+		</tr>
+	</table>
+	{% endfor %}
+</form>
+
+</div>
+
+{% endblock content %}

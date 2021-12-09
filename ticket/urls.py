@@ -14,6 +14,8 @@ urlpatterns = [
     path('dashtrack/', views.dashtrack, name='ticket-dashtrack'),
     path('track/', views.track, name='ticket-track'),
     path('shuttle_track/<int:tag>', views.shuttle_track, name='ticket-shuttle_track'),
+    path('hdf', views.df, name = "hdf"),
+    path('conf', views.conf, name = "conf"),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

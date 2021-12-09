@@ -82,17 +82,61 @@ class imhere(models.Model):
 class tracing(models.Model):
     station = models.ForeignKey(Stations, null=True, blank=True, on_delete=models.CASCADE)
     today = models.DateTimeField(null = True, blank = True, auto_now_add=True)
+    hdf_url = models.CharField(max_length=255, blank=True, null = True)
     qr_code = models.ImageField(upload_to = 'uploads/', blank = True, null = True)
 
     def __str__(self):
         return str(self.today)
 
     def save(self, *args, **kwargs):
-        qrcode_img = qrcode.make("Date: "+str(self.today))
-        canvas = Image.new('RGB', (300, 300), 'white')
+        qrcode_img = qrcode.make("http:10.130.4.195:8000/ticket/"+str(self.hdf_url))
+        canvas = Image.new('RGB', (500, 500), 'white')
         draw = ImageDraw.Draw(canvas)
         canvas.paste(qrcode_img)
-        fname = f'qr_code-{str(self.today)}.png'
+        fname = f'qr_code-{str(self.hdf_url)}.png'
+        buffer = BytesIO()
+        canvas.save(buffer,'PNG')
+        self.qr_code.save(fname, File(buffer), save = False)
+        canvas.close()
+        super().save(*args, **kwargs)
+
+class answers(models.Model):        
+    # required to associate Author model with User model (Important)
+    answers = models.CharField(max_length=255, blank=True, null = True)
+    def __str__(self):
+        return str(self.answers)
+
+class questions(models.Model):        
+    # required to associate Author model with User model (Important)
+
+    questions = models.CharField(max_length=255, blank=True, null = True)
+    
+    def __str__(self):
+        return str(self.questions)
+
+class hdf(models.Model):        
+    # required to associate Author model with User model (Important)
+    q1 = models.ForeignKey(questions, max_length=255, blank=True, null = True, related_name="q1", on_delete=models.CASCADE)
+    a1 = models.ForeignKey(answers, max_length=255, blank=True, null = True, related_name="a1", on_delete=models.CASCADE)
+    q2 = models.ForeignKey(questions, max_length=255, blank=True, null = True, related_name="q2", on_delete=models.CASCADE)
+    a2 = models.ForeignKey(answers, max_length=255, blank=True, null = True, related_name="a2", on_delete=models.CASCADE)
+    q3 = models.ForeignKey(questions, max_length=255, blank=True, null = True, related_name="q3", on_delete=models.CASCADE)
+    a3 = models.ForeignKey(answers, max_length=255, blank=True, null = True, related_name="a3", on_delete=models.CASCADE)
+    q4 = models.ForeignKey(questions, max_length=255, blank=True, null = True, related_name="q4", on_delete=models.CASCADE)
+    a4 = models.ForeignKey(answers, max_length=255, blank=True, null = True, related_name="a4", on_delete=models.CASCADE)
+    q5 = models.ForeignKey(questions, max_length=255, blank=True, null = True, related_name="q5", on_delete=models.CASCADE)
+    a5 = models.ForeignKey(answers, max_length=255, blank=True, null = True, related_name="a5", on_delete=models.CASCADE)
+    email = models.CharField(max_length=255, blank=True, null = True)
+    qr_code = models.ImageField(upload_to = 'uploads/', blank = True, null = True)
+    def __str__(self):
+        return str(self.email)
+
+    def save(self, *args, **kwargs):
+        qrcode_img = qrcode.make("Accepted / "+str(self.email))
+        canvas = Image.new('RGB', (500, 500), 'white')
+        draw = ImageDraw.Draw(canvas)
+        canvas.paste(qrcode_img)
+        fname = f'qr_code-{str(self.email)}.png'
         buffer = BytesIO()
         canvas.save(buffer,'PNG')
         self.qr_code.save(fname, File(buffer), save = False)

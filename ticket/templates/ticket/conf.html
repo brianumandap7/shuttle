@@ -1,0 +1,14 @@
+{% extends 'ticket/base2.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+<div class="container">
+	<h6>Welcome to FEU - Cavite!</h6>
+{% for items in lat %}
+	<img src="/media/{{items.qr_code}}" class="img-responsive" alt="qr">
+{% endfor %}
+</div>
+
+{% endblock content %}
