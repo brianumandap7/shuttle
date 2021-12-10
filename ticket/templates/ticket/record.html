@@ -38,6 +38,13 @@
 				<td>
 					{{items.status}}
 				</td>
+
+				{% if items.status_id == 4 %}
+					<td>
+						<a href="/media/{{items.qr_code}}" target = "_blank"class="btn btn-primary">QR Generated (For Approved Tickets)</a>
+					</td>
+					
+				{% endif %}
 			</tr>
 			{% endfor %}
 			
