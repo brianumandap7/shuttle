@@ -41,6 +41,13 @@ def exec(request):
 	}
 	return render(request, 'fts/exec.html', query)
 
+def execu(request, tag = 0):
+	query = {
+		'tag': tag,
+		'upd':Tickets.objects.filter(ticket_id = tag).update(status_id = 4),
+	}
+	return render(request, 'fts/execu.html', query)
+
 def headu(request, tag = 0):
 	query = {
 		'tag':tag,

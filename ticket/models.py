@@ -25,10 +25,23 @@ class Tickets(models.Model):
     description = models.CharField(max_length=255, blank=True, null = True)
     email = models.CharField(max_length=255, blank=True, null = True)
     status = models.ForeignKey(Status, blank=True, null = True, on_delete=models.CASCADE)
+    qr_code = models.ImageField(upload_to = 'uploads/', blank = True, null = True)
     user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
 
     def __str__(self):
     	return str(self.description)+" Date Filed: "+str(self.date_filed)+" By: "+str(self.user)
+
+    def save(self, *args, **kwargs):
+        qrcode_img = qrcode.make("Approved by Executive Director / "+str(self.description))
+        canvas = Image.new('RGB', (500, 500), 'white')
+        draw = ImageDraw.Draw(canvas)
+        canvas.paste(qrcode_img)
+        fname = f'qr_code-{str(self.description)}.png'
+        buffer = BytesIO()
+        canvas.save(buffer,'PNG')
+        self.qr_code.save(fname, File(buffer), save = False)
+        canvas.close()
+        super().save(*args, **kwargs)
 
 class easy_maps(models.Model):        
     # required to associate Author model with User model (Important)

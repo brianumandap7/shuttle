@@ -13,6 +13,7 @@ urlpatterns = [
     path('driver/', views.driver, name='exec-driver'),
     path('head/<int:tag>', views.headu, name='exec-head'),
     path('ftsu/<int:tag>', views.ftsu, name='exec-fts'),
+    path('execu/<int:tag>', views.execu, name='exec-execu'),
 ]
 
 
