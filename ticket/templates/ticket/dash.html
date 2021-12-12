@@ -30,7 +30,7 @@
 	</script>
 	{% elif items.role_id == 3 %}
 	<script>
-		window.location.href = '/fts/';
+		window.location.href = '/fts/fts1';
 
 	</script>
 	{% elif items.role_id == 4 %}
@@ -47,8 +47,14 @@
 {% endfor %}
 
 {% endif %}
+
+
 <div class="file">
 	<div class="row">
+
+		{% for items in role %}
+
+		{% if items.role_id == 1 %}
 		<div class="col-lg-4 col-md-4 col-xs-4">
 			<center>
 				<a href = "/ticket/file">
@@ -68,6 +74,8 @@
 				<h6>Track Submitted Tickets</h6>
 			</center>
 		</div>
+		{% endif %}
+		{% endfor %}
 
 		<div class="col-lg-4 col-md-4 col-xs-4">
 			<center>

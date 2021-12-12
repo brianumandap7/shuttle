@@ -10,6 +10,12 @@ def fts(request):
 	}
 	return render(request, 'fts/fts.html', query)
 
+def fts1(request):
+	query = {
+		'list': Tickets.objects.all(),
+	}
+	return render(request, 'fts/fts1.html', query)
+
 def head(request):
 	query = {
 		'list': Tickets.objects.all(),
@@ -70,6 +76,10 @@ def ftsu(request, tag = 0):
 		return HttpResponseRedirect('/fts/')
 	return render(request, 'fts/ftsu.html', query)
 
+def add_driver(request):
+	query = {
+	}
+	return render(request, 'fts/add_driver.html', query)
 
 
 
