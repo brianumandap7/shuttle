@@ -16,7 +16,7 @@
 </style>
 {% if request.user.is_superuser %}
 <script>
-		window.location.href = '/admin/';
+		window.location.href = '/ticket/admindash';
 
 </script>
 {% endif %}
@@ -55,37 +55,122 @@
 		{% for items in role %}
 
 		{% if items.role_id == 1 %}
-		<div class="col-lg-4 col-md-4 col-xs-4">
-			<center>
-				<a href = "/ticket/file">
-					<img src="{% static 'shuttle/submit.jpg' %}" class="img-reponsive dashlogo">
-					
-				</a>
-				<h6>File a Ticket</h6>
-			</center>
-		</div>
+		 
+                <article class="col-12 col-md-6 tm-post">
+                    <hr class="tm-hr-primary">
+                    <h1 class="effect-lily tm-post-link tm-pt-60">
+                        <div class="tm-post-link-inner">
+                            <img src="/media/uploads/feu.png" alt="Image123" class="img-fluid">                            
+                        </div>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">Far Eastern University</h2>
+                    </h1>                    
+                    <p class="tm-pt-30">
+                        Far Eastern University, also known simply as FEU, is a private research university in Manila, Philippines. 
+                        Created by the merger of Far Eastern College and the Institute of Accounts, Business, and Finance, 
+                        FEU became a university in 1934 under the guidance of its first president, Nicanor Reyes Sr.
+                    </p>
+                    <hr>
+                </article>
+                <article class="col-12 col-md-6 tm-post">
+                    <hr class="tm-hr-primary">
+                    <h1 class="effect-lily tm-post-link tm-pt-60">
+                        <div class="tm-post-link-inner">
+                            <img src="/media/uploads/shuttle.jpg" alt="Image" class="shuttle">                            
+                        </div>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">Shuttle Service</h2>
+                    </h1>                      
+                    <p class="tm-pt-30">
+                        Used to transport passengers around FEU Cavite Campus
+                    </p>
+                    <hr>
+                </article>
+                <article class="col-12 col-md-6 tm-post">
+                    <hr class="tm-hr-primary">
+                    <h1 class="effect-lily tm-post-link tm-pt-60">
+                        <div class="tm-post-link-inner">
+                            <a href="/ticket/dashtrack"><img src="/media/uploads/maps.PNG" alt="Image" class="img-fluid"></a>                            
+                        </div>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">Shuttle Tracking</h2>
+                    </h1>                      
+                    <p class="tm-pt-30">
+                       Used to transport passengers around FEU Cavite Campus
+                    </p>
+                    <hr>
+                </article>
+                <article class="col-12 col-md-6 tm-post">
+                    <hr class="tm-hr-primary">
+                    <h1 class="effect-lily tm-post-link tm-pt-60">
+                        <div class="tm-post-link-inner">
+                            <a href="/ticket/file"><img src="/media/uploads/ticket filing.PNG" alt="Image" class="img-fluid im"></a>                            
+                        </div>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">Trip Ticket Filing</h2>
+                    </h1>                      
+                    <p class="tm-pt-30">
+                        Used to file a trip ticket when users need to use the shuttle for outside school premise.
+                    </p>
+                    <hr>
+                </article>
+                <article class="col-12 col-md-6 tm-post">
+                    <hr class="tm-hr-primary">
+                    <h1 class="effect-lily tm-post-link tm-pt-60">
+                        <div class="tm-post-link-inner">
+                            <a href="/ticket/record"><img src="/media/uploads/trip ticket manage.PNG" alt="Image" class="img-fluid"></a>                            
+                        </div>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">Trip Ticket Tracking</h2>
+                    </h1>                       
+                    <p class="tm-pt-30">
+                        Used to track all the submitted tickets of the user.
+                    </p>
+                    <hr>
 
-		<div class="col-lg-4 col-md-4 col-xs-4">
-			<center>
-				<a href = "/ticket/record">
-					<img src="{% static 'shuttle/record.png' %}" class="img-reponsive dashlogo1">
-					
-				</a>
-				<h6>Track Submitted Tickets</h6>
-			</center>
-		</div>
+                </article>
+                <article class="col-12 col-md-6 tm-post">
+                    <hr class="tm-hr-primary">
+                    <h1 class="effect-lily tm-post-link tm-pt-60">
+                        <div class="tm-post-link-inner">
+                           <a href="/ticket/hdf"><img src="/media/uploads/survey.png" alt="Image" class="img-fluid"></a>                            
+                        </div>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">Contact Tracing</h2>
+                    </h1>                       
+                    <p class="tm-pt-30">
+                        Used to answer and submit a Covid -19 Contact Tracing Form.
+                    </p>      
+				</article>
+
+				{% else %}
+				<article class="col-12 col-md-6 tm-post">
+                    <hr class="tm-hr-primary">
+                    <h1 class="effect-lily tm-post-link tm-pt-60">
+                        <div class="tm-post-link-inner">
+                            <img src="/media/uploads/feu.png" alt="Image123" class="img-fluid im">                            
+                        </div>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">Far Eastern University</h2>
+                    </h1>                    
+                    <p class="tm-pt-30">
+                        Far Eastern University, also known simply as FEU, is a private research university in Manila, Philippines. 
+                        Created by the merger of Far Eastern College and the Institute of Accounts, Business, and Finance, 
+                        FEU became a university in 1934 under the guidance of its first president, Nicanor Reyes Sr.
+                    </p>
+                    <hr>
+                </article>
+				<article class="col-12 col-md-6 tm-post">
+                    <hr class="tm-hr-primary">
+                    <h1 class="effect-lily tm-post-link tm-pt-60">
+                        <div class="tm-post-link-inner">
+                            <a href="/ticket/dashtrack"><img src="/media/uploads/maps.PNG" alt="Image" class="img-fluid im"></a>                            
+                        </div>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">Shuttle Tracking</h2>
+                    </h1>                      
+                    <p class="tm-pt-30">
+                       Used to transport passengers around FEU Cavite Campus
+                    </p>
+                    <hr>
+                </article>
+			
 		{% endif %}
 		{% endfor %}
 
-		<div class="col-lg-4 col-md-4 col-xs-4">
-			<center>
-				<a href = "/ticket/dashtrack">
-					<img src="{% static 'shuttle/bus.png' %}" class="img-reponsive dashlogo1">
-					
-				</a>
-				<h6>Shuttle Tracking</h6>
-			</center>
-		</div>
+		
 	</div>
 
 </div>

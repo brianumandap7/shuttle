@@ -16,6 +16,7 @@ urlpatterns = [
     path('shuttle_track/<int:tag>', views.shuttle_track, name='ticket-shuttle_track'),
     path('hdf', views.df, name = "hdf"),
     path('conf', views.conf, name = "conf"),
+    path('admindash/', views.admindash, name = "admindash"),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

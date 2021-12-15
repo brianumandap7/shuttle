@@ -11,6 +11,15 @@ def ticket(request):
 	}
 	return render(request, 'ticket/dash.html', query)
 
+def admindash(request):
+	query = {
+		'uc': Author.objects.all().count(),
+		'tc': Tickets.objects.all().count(),
+		'sc': shuttle.objects.all().count(),
+		'cc': hdf.objects.all().count(),
+	}
+	return render(request, 'ticket/admindash.html', query)
+
 def file(request):
 	query = {
 		

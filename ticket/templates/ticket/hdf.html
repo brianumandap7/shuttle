@@ -79,7 +79,11 @@
 		</tr>
 		<tr>
 			<td>
+				{% if request.user.is_authenticated %}
+				User: <input type="text" name="eadd" class="form-control" value="{{user}}">
+				{% else %}
 				Email: <input type="email" name="eadd" class="form-control">
+				{% endif %}
 			</td>
 			
 		</tr>
