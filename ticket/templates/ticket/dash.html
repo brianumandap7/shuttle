@@ -55,7 +55,14 @@
 		{% for items in role %}
 
 		{% if items.role_id == 1 %}
-		 
+                {% for item in tik %}
+		        
+
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                  <strong>Ticket No. {{item.ticket_id}} </strong>is now in status: "{{item.status}}"!
+                  
+                </div>
+                {% endfor %}
                 <article class="col-12 col-md-6 tm-post">
                     <hr class="tm-hr-primary">
                     <h1 class="effect-lily tm-post-link tm-pt-60">

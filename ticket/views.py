@@ -7,7 +7,8 @@ from login.models import Roles, Author
 
 def ticket(request):
 	query = {
-		'role': Author.objects.filter(user = request.user)
+		'role': Author.objects.filter(user = request.user),
+		'tik': Tickets.objects.filter(user = request.user)
 	}
 	return render(request, 'ticket/dash.html', query)
 

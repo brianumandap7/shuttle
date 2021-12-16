@@ -25,6 +25,7 @@ class Tickets(models.Model):
     description = models.CharField(max_length=255, blank=True, null = True)
     email = models.CharField(max_length=255, blank=True, null = True)
     status = models.ForeignKey(Status, blank=True, null = True, on_delete=models.CASCADE)
+    reason = models.CharField(max_length=255, blank=True, null = True)
     qr_code = models.ImageField(upload_to = 'uploads/', blank = True, null = True)
     user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
 
