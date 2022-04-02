@@ -1,4 +1,4 @@
-{% extends 'ticket/base2.html' %}
+{% extends 'ticket/studentbase.html' %}
 {% block content %}
 {% load crispy_forms_tags %}
 {% load static %}
@@ -12,6 +12,9 @@
 	height: 300px;
 }
 
+.shuttle {
+    width: 500px;
+}
 
 </style>
 {% if request.user.is_superuser %}
@@ -48,7 +51,7 @@
 
 {% endif %}
 
-
+<div class="container">
 <div class="file">
 	<div class="row">
 
@@ -58,7 +61,7 @@
                 {% for item in tik %}
 		        
 
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <div class="col-md-12 alert alert-danger alert-dismissible fade show" role="alert">
                   <strong>Ticket No. {{item.ticket_id}} </strong>is now in status: "{{item.status}}"!
                   
                 </div>
@@ -78,7 +81,7 @@
                     </p>
                     <hr>
                 </article>
-                <article class="col-12 col-md-6 tm-post">
+                <article class="col-lg-6 col-md-6 tm-post">
                     <hr class="tm-hr-primary">
                     <h1 class="effect-lily tm-post-link tm-pt-60">
                         <div class="tm-post-link-inner">
@@ -182,4 +185,5 @@
 
 </div>
 
+</div>
 {% endblock content %}
