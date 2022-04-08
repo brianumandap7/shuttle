@@ -16,6 +16,10 @@
     width: 500px;
 }
 
+\
+.imgs {
+    width: auto;
+}
 </style>
 {% if request.user.is_superuser %}
 <script>
@@ -98,7 +102,12 @@
                     <hr class="tm-hr-primary">
                     <h1 class="effect-lily tm-post-link tm-pt-60">
                         <div class="tm-post-link-inner">
-                            <a href="/ticket/dashtrack"><img src="/media/uploads/maps.PNG" alt="Image" class="img-fluid"></a>                            
+                            <a href="/ticket/dashtrack" target="popup" class="btn btn-success btn-sm"
+                      onclick="window.open('/ticket/dashtrack','popup','width=900,height=600'); return false;">
+                      <img src="/media/uploads/maps.PNG" alt="Image" class="img-fluid imgs">
+                      
+                    </a>    
+                                                    
                         </div>
                         <h2 class="tm-pt-30 tm-color-primary tm-post-title">Shuttle Tracking</h2>
                     </h1>                      
@@ -111,7 +120,11 @@
                     <hr class="tm-hr-primary">
                     <h1 class="effect-lily tm-post-link tm-pt-60">
                         <div class="tm-post-link-inner">
-                            <a href="/ticket/file"><img src="/media/uploads/ticket filing.PNG" alt="Image" class="img-fluid im"></a>                            
+                                    <a href="/ticket/file" target="popup" class="btn btn-success btn-sm"
+                              onclick="window.open('/ticket/file','popup','width=900,height=600'); return false;">
+                              <img src="/media/uploads/ticket filing.PNG" alt="Image" class="img-fluid imgs">
+                              </i>
+                            </a>                               
                         </div>
                         <h2 class="tm-pt-30 tm-color-primary tm-post-title">Trip Ticket Filing</h2>
                     </h1>                      
@@ -124,7 +137,13 @@
                     <hr class="tm-hr-primary">
                     <h1 class="effect-lily tm-post-link tm-pt-60">
                         <div class="tm-post-link-inner">
-                            <a href="/ticket/record"><img src="/media/uploads/trip ticket manage.PNG" alt="Image" class="img-fluid"></a>                            
+
+                            <a href="/ticket/record" target="popup" class="btn btn-success btn-sm"
+                              onclick="window.open('/ticket/record','popup','width=900,height=600'); return false;">
+                              <img src="/media/uploads/trip ticket manage.PNG" alt="Image" class="img-fluid">
+                              </i>
+                            </a>  
+                                                      
                         </div>
                         <h2 class="tm-pt-30 tm-color-primary tm-post-title">Trip Ticket Tracking</h2>
                     </h1>                       
@@ -138,7 +157,13 @@
                     <hr class="tm-hr-primary">
                     <h1 class="effect-lily tm-post-link tm-pt-60">
                         <div class="tm-post-link-inner">
-                           <a href="/ticket/hdf"><img src="/media/uploads/survey.png" alt="Image" class="img-fluid"></a>                            
+
+                        <a href="/ticket/hdf" target="popup" class="btn btn-success btn-sm"
+                              onclick="window.open('/ticket/hdf','popup','width=900,height=600'); return false;">
+                              <img src="/media/uploads/survey.png" alt="Image" class="img-fluid">
+                              </i>
+                            </a>  
+                                                               
                         </div>
                         <h2 class="tm-pt-30 tm-color-primary tm-post-title">Contact Tracing</h2>
                     </h1>                       
@@ -167,7 +192,12 @@
                     <hr class="tm-hr-primary">
                     <h1 class="effect-lily tm-post-link tm-pt-60">
                         <div class="tm-post-link-inner">
-                            <a href="/ticket/dashtrack"><img src="/media/uploads/maps.PNG" alt="Image" class="img-fluid im"></a>                            
+                            <a href="/ticket/dashtrack" target="popup" class="btn btn-success btn-sm"
+                      onclick="window.open('/ticket/dashtrack','popup','width=900,height=600'); return false;">
+                      <img src="/media/uploads/maps.PNG" alt="Image" class="img-fluid imgs">
+                      
+                    </a>    
+                                                    
                         </div>
                         <h2 class="tm-pt-30 tm-color-primary tm-post-title">Shuttle Tracking</h2>
                     </h1>                      
@@ -175,6 +205,25 @@
                        Used to transport passengers around FEU Cavite Campus
                     </p>
                     <hr>
+                </article>
+
+                <article class="col-12 col-md-6 tm-post">
+                    <hr class="tm-hr-primary">
+                    <h1 class="effect-lily tm-post-link tm-pt-60">
+                        <div class="tm-post-link-inner">
+
+                        <a href="/ticket/hdf" target="popup" class="btn btn-success btn-sm"
+                              onclick="window.open('/ticket/hdf','popup','width=900,height=600'); return false;">
+                              <img src="/media/uploads/survey.png" alt="Image" class="img-fluid">
+                              
+                            </a>  
+                                                               
+                        </div>
+                        <h2 class="tm-pt-30 tm-color-primary tm-post-title">Contact Tracing</h2>
+                    </h1>                       
+                    <p class="tm-pt-30">
+                        Used to answer and submit a Covid -19 Contact Tracing Form.
+                    </p>      
                 </article>
 			
 		{% endif %}

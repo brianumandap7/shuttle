@@ -1,4 +1,4 @@
-{% extends 'ticket/base2.html' %}
+{% extends 'ticket/ftsbase.html' %}
 {% block content %}
 {% load crispy_forms_tags %}
 {% load static %}
@@ -44,6 +44,14 @@
 				</td>
 			</tr>
 
+			<tr>
+				<td>
+					Participants: 
+				</td>
+				<td>
+					<textarea id="w3review" name="w3review" rows="5" cols="50" required></textarea>
+				</td>
+			</tr>
 			<tr>
 				<td>
 					
