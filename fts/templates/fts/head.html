@@ -49,7 +49,7 @@
 					
 					{% if items.status_id == 1 %}
 					<a href="/fts/head/{{items.ticket_id}}" class="btn btn-success">Approve</a>
-					<a href="/admin/ticket/tickets/{{items.ticket_id}}/change/" class="btn btn-success">Reject</a>
+					<a href="/admin/ticket/tickets/{{items.ticket_id}}/change/" class="btn btn-danger">Reject</a>
 					{% else %}
 					<a href="#" class="btn btn-warning disabled">Not Covered</a>
 					{% endif %}
