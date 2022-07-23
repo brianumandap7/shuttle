@@ -43,6 +43,7 @@ def record(request):
 	query = {
 		'list': Tickets.objects.filter(user = request.user)
 	}
+	
 	return render(request, 'ticket/record.html', query)
 
 def track(request):
