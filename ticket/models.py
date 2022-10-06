@@ -45,6 +45,27 @@ class Tickets(models.Model):
         canvas.close()
         super().save(*args, **kwargs)
 
+class reserve(models.Model):      
+    reserve_id = models.AutoField(primary_key=True)  
+    reserve_date = models.DateTimeField(blank=True, null = True, auto_now_add=True)
+    qr_code = models.ImageField(upload_to = 'uploads/', blank = True, null = True)
+    user = models.ForeignKey(User, null=True, blank=True, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return str(self.reserve_id)+str(self.reserve_date)+str(self.user)
+
+    def save(self, *args, **kwargs):
+        qrcode_img = qrcode.make("Reserved / "+str(self.user))
+        canvas = Image.new('RGB', (500, 500), 'white')
+        draw = ImageDraw.Draw(canvas)
+        canvas.paste(qrcode_img)
+        fname = f'qr_code-{str(self.user)}.png'
+        buffer = BytesIO()
+        canvas.save(buffer,'PNG')
+        self.qr_code.save(fname, File(buffer), save = False)
+        canvas.close()
+        super().save(*args, **kwargs)
+
 class easy_maps(models.Model):        
     # required to associate Author model with User model (Important)
     address = models.CharField(max_length=255, blank=True, null = True)

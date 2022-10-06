@@ -22,14 +22,14 @@
 
 
     <div id="map"></div>
-    <input type="text" id="myField" placeholder = "lat" value="" />
-    <input type="text" id="myField2" placeholder = "long" value="" />
+    <input type="hidden" id="myField" placeholder = "lat" value="" />
+    <input type="hidden" id="myField2" placeholder = "long" value="" />
 
 <!-- leaflet js  -->
 <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
 <script>
     // Map initialization 
-    var map = L.map('map').setView([14.1491, 120.9661],6);
+    var map = L.map('map').setView([14.237196181780135, 120.96093725512777],200);
 
     //osm layer
     var osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -42,7 +42,7 @@
     } else {
         setInterval(() => {
             navigator.geolocation.getCurrentPosition(getPosition)
-        }, 2000);
+        }, 5000);
     }
 
     var marker, circle;
@@ -51,7 +51,7 @@
         // console.log(position)
         var lat = position.coords.latitude
         var long = position.coords.longitude
-        var accuracy = position.coords.accuracy
+        var accuracy = 5
 
         if(marker) {
             map.removeLayer(marker)

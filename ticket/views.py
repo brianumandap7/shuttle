@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponseRedirect
 from django.contrib.auth.models import User
-from .models import Tickets, Status, Stations, shuttle, destination, current_loc, imhere, answers, questions, hdf
+from .models import Tickets, Status, Stations, shuttle, destination, current_loc, imhere, answers, questions, hdf, reserve
 from login.models import Roles, Author
 
 
@@ -64,10 +64,11 @@ def shuttle_track(request, tag=0):
 		'tag':tag,
 		'curr': current_loc.objects.all(),
 		'stat': Stations.objects.filter(station_id = tag),
+		'res': reserve.objects.filter(user = request.user),
 	}
 
 	if request.method == "POST":
-			db = imhere()
+			db = reserve()
 			db.user = request.user
 			db.save()
 	return render(request, 'ticket/shuttle_track.html', query)
