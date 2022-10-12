@@ -21,6 +21,24 @@ def admindash(request):
 	}
 	return render(request, 'ticket/admindash.html', query)
 
+def student_page(request):
+	query = {
+		
+	}
+	return render(request, 'ticket/student_page.html', query)
+
+def employee_page(request):
+	query = {
+		
+	}
+	return render(request, 'ticket/employee_page.html', query)
+
+def fts_page(request):
+	query = {
+		
+	}
+	return render(request, 'ticket/fts_page.html', query)
+
 def file(request):
 	query = {
 		

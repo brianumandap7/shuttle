@@ -4,6 +4,7 @@ from . import views
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.contrib.auth.decorators import login_required
 
 app_name = 'ticket'
 
@@ -17,6 +18,9 @@ urlpatterns = [
     path('hdf', views.df, name = "hdf"),
     path('conf', views.conf, name = "conf"),
     path('admindash/', views.admindash, name = "admindash"),
+    path('student_page/', login_required(views.student_page), name='student_page'),
+    path('employee_page/', login_required(views.employee_page), name='employee_page'),
+    path('fts_page/', login_required(views.fts_page), name='fts_page'),
 ]
 
 urlpatterns += staticfiles_urlpatterns()

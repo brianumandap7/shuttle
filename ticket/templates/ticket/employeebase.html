@@ -156,39 +156,32 @@
               </p>
             </a>
           </li>
-          <li class="nav-header">Users</li>
+
+          <li class="nav-header">Shuttle</li>
           <li class="nav-item">
-            
-          </li>
-          
-          <li class="nav-header">Tickets</li>
-          <li class="nav-item">
-            <a href="/admin/ticket/tickets/" target="_blank" class="nav-link">
-              <i class="nav-icon fas fa-book"></i>
-              <p>View Tickets</p>
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-bus"></i>
+              <p>Track Shuttle</p>
             </a>
           </li>
-          
-          <li class="nav-header">Shuttle MANAGEMENT</li>
+
+          <li class="nav-header">Trip Ticket</li>
           <li class="nav-item">
-            <a href="/admin/ticket/shuttle/" target="_blank" class="nav-link">
-              <i class="fas fa-car nav-icon"></i>
-              <p>Add Shuttle</p>
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-ticket-alt"></i>
+              <p>File Trip Ticket</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="/admin/ticket/stations/" target="_blank" class="nav-link">
-              <i class="fas fa-bus nav-icon"></i>
-              <p>Add Shuttle Routes</p>
-            </a>
-          </li>
-          
+
           <li class="nav-item">
             <a href="/logout/" class="nav-link">
               <i class="nav-icon fas fa-sign-out-alt"></i>
               <p>Logout</p>
             </a>
           </li>
+          
+        
+          
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -201,7 +194,9 @@
     <!-- Content Header (Page header) -->
     
     <!-- /.content-header -->
-     <div class="content-header">
+
+    <!-- Main content -->
+    <div class="content-header">
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
@@ -216,7 +211,6 @@
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
     </div>
-    <!-- Main content -->
     {% block content %}
 
     {% endblock content %}
